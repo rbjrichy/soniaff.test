@@ -16,7 +16,7 @@ return [
 
     'title' => '',
     'title_prefix' => '',
-    'title_postfix' => ' | Sistema Sonia',
+    'title_postfix' => ' | AMiMundo',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Medi</b>Agenda',
+    'logo' => '<b>AMi</b>Mundo',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'MediAgenda',
+    'logo_img_alt' => 'AMiMundo',
 
     /*
     |--------------------------------------------------------------------------

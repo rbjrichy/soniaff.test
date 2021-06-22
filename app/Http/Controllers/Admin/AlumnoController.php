@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Alumno;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AlumnoController extends Controller
 {
@@ -14,7 +15,7 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.alumnos.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.alumnos.create'); 
     }
 
     /**

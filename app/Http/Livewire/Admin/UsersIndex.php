@@ -16,7 +16,7 @@ class UsersIndex extends Component
 
     public function updatingSearch()
     {
-        $this->resetpage();
+        $this->resetPage();
     }
 
     public function render()
