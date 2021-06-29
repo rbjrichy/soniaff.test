@@ -241,11 +241,11 @@ return [
         //     'type' => 'sidebar-menu-search',
         //     'text' => 'search',
         // ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
+        // [
+        //     'text' => 'blog',
+        //     'url'  => 'admin/blog',
+        //     'can'  => 'manage-blog',
+        // ],
         [
             'text'        => 'Dashboard',
             'url'         => 'admin',
@@ -258,7 +258,12 @@ return [
         ],
         [
             'text'        => 'Alumnos',
-            'route'         => 'admin.alumnos.index',
+            'route'       => 'admin.alumnos.index',
+            'icon'        => 'fas fa-users fa-fw',
+        ],
+        [
+            'text'        => 'Tutores',
+            'route'       => 'admin.tutor.index',
             'icon'        => 'fas fa-users fa-fw',
         ],
         ['header' => 'account_settings'],
@@ -430,6 +435,31 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                ],
+            ],
+        ],
+        'TempusDominusBs4' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/moment/moment.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/moment/locale/es.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
                 ],
             ],
         ],
