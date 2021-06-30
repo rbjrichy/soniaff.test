@@ -33,7 +33,18 @@
                             <td>{{$alumno->ci_nit}}</td>
                             <td>{{$alumno->nombres}} {{$alumno->apellidos}} </td>
                             <td>{{$alumno->escolaridad}}</td>
-                            <td></td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-sm btn-info" href="{!! route('admin.alumnos.edit', [$alumno]) !!}">
+                                        <i class="far fa-edit"></i>
+                                    </a>
+                                    <form action="{{ route('admin.alumnos.destroy', [$alumno]) }}" method="POST" onsubmit='return confirm("¿Esta seguro que desea eliminar el registro?");'>
+                                        @csrf @method('delete')
+                                        <button type="submit" class="btn btn-sm btn-danger">
+                                            <i class="far fa-trash-alt"></i></button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

@@ -23,8 +23,8 @@ class AlumnosIndex extends Component
     {
         $alumnos = Persona::where('tipo_persona', 'Alumno')
                           ->where('ci_nit', 'like', '%'.$this->search.'%')
-                          ->orWhere('nombres', 'like', '%'.$this->search.'%')
-                          ->orWhere('apellidos', 'like', '%'.$this->search.'%')
+                          ->where('nombres', 'like', '%'.$this->search.'%')
+                          ->where('apellidos', 'like', '%'.$this->search.'%')
                           ->orderBy('escolaridad')
                           ->paginate();
                           

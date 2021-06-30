@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreAlumnosRequest extends FormRequest
+class ValidarAlumnosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +23,10 @@ class StoreAlumnosRequest extends FormRequest
      */
     public function rules()
     {
+        //
         return [
             // 'tipo_persona'=> 'required|max:20',
-            'ci_nit'=> 'numeric|required',
+            'ci_nit'=> 'numeric|required|unique:personas,ci_nit,'.$this->route('alumno.id'),
             'nombres'=> 'required|max:250',
             'apellidos'=> 'required|max:250',
             'fecha_nac'=> 'date|nullable',

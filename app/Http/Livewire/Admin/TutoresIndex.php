@@ -23,8 +23,8 @@ class TutoresIndex extends Component
     {
         $tutores = Persona::where('tipo_persona', 'Tutor')
                           ->where('ci_nit', 'like', '%'.$this->search.'%')
-                          ->orWhere('nombres', 'like', '%'.$this->search.'%')
-                          ->orWhere('apellidos', 'like', '%'.$this->search.'%')
+                          ->where('nombres', 'like', '%'.$this->search.'%')
+                          ->where('apellidos', 'like', '%'.$this->search.'%')
                           ->orderBy('nombres')
                           ->paginate();
         return view('livewire.admin.tutores-index', compact('tutores'));

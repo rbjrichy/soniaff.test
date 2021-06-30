@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Alumno;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAlumnosRequest;
+use App\Http\Requests\ValidarAlumnosRequest;
+use App\Models\Persona;
 
 class AlumnoController extends Controller
 {
@@ -35,9 +35,13 @@ class AlumnoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAlumnosRequest $request)
+    public function store(ValidarAlumnosRequest $request)
     {
-        dd($request->all());
+        $request['tipo_persona'] = "Alumno";
+        $persona = Persona::create($request->all());
+        // dd($persona);
+
+        return redirect()->route('admin.alumnos.index');
     }
 
     /**
@@ -46,7 +50,7 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function show(Alumno $alumno)
+    public function show(Persona $alumno)
     {
         //
     }
@@ -57,9 +61,9 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumno $alumno)
+    public function edit(Persona $alumno)
     {
-        //
+        return view('admin.alumnos.edit', compact('alumno')); 
     }
 
     /**
@@ -69,9 +73,11 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(ValidarAlumnosRequest $request, Persona $alumno)
     {
-        //
+        $alumno->update($request->all());
+        session(['mensaje' => 'El registro se actualizado correctamente.']);
+        return redirect()->route('admin.alumnos.edit', [$alumno]);
     }
 
     /**
@@ -80,8 +86,10 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alumno $alumno)
+    public function destroy(Persona $alumno)
     {
-        //
+        $alumno->delete();
+        session(['mensaje' => 'El registro ha sido borrado correctamente.']);
+        return redirect()->route('admin.alumnos.index');
     }
 }
