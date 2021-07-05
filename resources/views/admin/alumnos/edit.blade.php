@@ -6,6 +6,14 @@
 @stop
 
 @section('content')
+@php
+    // var_dump(session()->all());
+@endphp
+@if (session('info'))
+    <div class="alert alert-success">
+        <strong>{{ session('info') }} </strong>
+    </div>
+@endif
 
 <div class="col-8">
     <div class="card">

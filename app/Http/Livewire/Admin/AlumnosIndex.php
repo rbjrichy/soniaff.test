@@ -21,10 +21,13 @@ class AlumnosIndex extends Component
 
     public function render()
     {
+        $buscar = $this->search;
         $alumnos = Persona::where('tipo_persona', 'Alumno')
-                          ->where('ci_nit', 'like', '%'.$this->search.'%')
-                          ->where('nombres', 'like', '%'.$this->search.'%')
-                          ->where('apellidos', 'like', '%'.$this->search.'%')
+                          ->where(function($query) use($buscar){
+                            $query->where('ci_nit', 'like', '%'.$buscar.'%');
+                            $query->orWhere('nombres', 'like', '%'.$this->search.'%');
+                            $query->orWhere('apellidos', 'like', '%'.$this->search.'%');
+                          })
                           ->orderBy('escolaridad')
                           ->paginate();
                           

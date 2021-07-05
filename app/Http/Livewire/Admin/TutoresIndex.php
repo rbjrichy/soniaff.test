@@ -21,10 +21,13 @@ class TutoresIndex extends Component
     
     public function render()
     {
+        $buscar = $this->search;
         $tutores = Persona::where('tipo_persona', 'Tutor')
-                          ->where('ci_nit', 'like', '%'.$this->search.'%')
-                          ->where('nombres', 'like', '%'.$this->search.'%')
-                          ->where('apellidos', 'like', '%'.$this->search.'%')
+                            ->where(function($query) use($buscar){
+                                $query->where('ci_nit', 'like', '%'.$buscar.'%');
+                                $query->orWhere('nombres', 'like', '%'.$buscar.'%');
+                                $query->orWhere('apellidos', 'like', '%'.$buscar.'%');
+                            })
                           ->orderBy('nombres')
                           ->paginate();
         return view('livewire.admin.tutores-index', compact('tutores'));
