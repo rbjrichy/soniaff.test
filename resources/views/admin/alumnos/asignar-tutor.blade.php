@@ -47,9 +47,6 @@
                     <td>{{$tutor->telefonos}}</td>
                     <td>
                         <div class="btn-group">
-                            <a class="btn btn-sm btn-info" href="#">
-                                Editar
-                            </a>
                             {!! Form::open(['route' => ['admin.alumnos.asignartutor.delete']]) !!}
                             {!! Form::hidden('tutor_id', $tutor->id) !!}
                             {!! Form::hidden('alumno_id', $alumno->id) !!}

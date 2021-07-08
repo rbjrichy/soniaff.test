@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Institucion</title>
+	<title>A Mi Mundo</title>
 	<link rel="stylesheet" href="{{asset('ins/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" href="{{asset('ins/css/normalize.css')}}">
 	<link rel="stylesheet" href="{{asset('ins/css/bootstrap.min.css')}}">

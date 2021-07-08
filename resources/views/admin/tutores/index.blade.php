@@ -1,11 +1,16 @@
 @extends('adminlte::page')
-@section('title', 'Alumnos')
+@section('title', 'Tutores')
 
 @section('content_header')
     <h1>Lista Tutores</h1>
 @stop
 
 @section('content')
+@if (session('mensaje'))
+<div class="alert alert-success">
+    <strong>{{ session('mensaje') }} </strong>
+</div>
+@endif
     @livewire('admin.tutores-index')
 @stop
 

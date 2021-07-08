@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidarTuroresRequest;
+use App\Models\Persona;
 
 class TutorController extends Controller
 {
@@ -14,6 +16,7 @@ class TutorController extends Controller
      */
     public function index()
     {
+        
         return view('admin.tutores.index');
     }
 
@@ -24,7 +27,7 @@ class TutorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tutores.create'); 
     }
 
     /**
@@ -33,9 +36,12 @@ class TutorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidarTuroresRequest $request)
     {
-        //
+        // dd($request->all());
+        $request['tipo_persona'] = "Tutor";
+        $tutor = Persona::create($request->all());
+        return redirect()->route('admin.tutores.edit',[$tutor])->with('mensaje', 'Se creo el tutor correctamente');
     }
 
     /**
@@ -44,9 +50,12 @@ class TutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Persona $tutore)
     {
-        //
+        $tutor = $tutore;
+        $tutelados = $tutor->tutelados()->get();
+
+        return view('admin.tutores.show', compact('tutor','tutelados')); 
     }
 
     /**
@@ -55,9 +64,10 @@ class TutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Persona $tutore)
     {
-        //
+        $tutor = $tutore;
+        return view('admin.tutores.edit', compact('tutor')); 
     }
 
     /**
@@ -67,9 +77,13 @@ class TutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidarTuroresRequest $request, Persona $tutore)
     {
-        //
+        $tutor = $tutore;
+        $tutor->update($request->all());
+        session(['mensaje' => 'El registro se actualizado correctamente.']);
+        return redirect()->route('admin.tutores.edit', [$tutor]);
+        
     }
 
     /**
@@ -78,8 +92,11 @@ class TutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Persona $tutore)
     {
-        //
+        $tutor = $tutore;
+        $tutor->delete();
+        session(['mensaje' => 'El registro ha sido borrado correctamente.']);
+        return redirect()->route('admin.tutores.index');
     }
 }

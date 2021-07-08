@@ -17,4 +17,4 @@ Route::get('alumnos/tutores/store/{alumno}/{tutor}', [AlumnoController::class, '
 Route::post('alumnos/tutores/store/{alumno}', [AlumnoController::class, 'storeAsignarTutor'])->name('admin.alumnos.asignartutor.store');
 Route::post('alumnos/delete/tutores', [AlumnoController::class, 'quitarTutor'])->name('admin.alumnos.asignartutor.delete');
 
-Route::resource('tutores', TutorController::class)->names('admin.tutor');
+Route::resource('tutores', TutorController::class)->names('admin.tutores');

@@ -263,7 +263,7 @@ return [
         ],
         [
             'text'        => 'Tutores',
-            'route'       => 'admin.tutor.index',
+            'route'       => 'admin.tutores.index',
             'icon'        => 'fas fa-users fa-fw',
         ],
         ['header' => 'account_settings'],
