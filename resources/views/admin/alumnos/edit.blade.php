@@ -9,9 +9,9 @@
 @php
     // var_dump(session()->all());
 @endphp
-@if (session('info'))
+@if (session('mensaje'))
     <div class="alert alert-success">
-        <strong>{{ session('info') }} </strong>
+        <strong>{{ session()->pull('mensaje')  }} </strong>
     </div>
 @endif
 

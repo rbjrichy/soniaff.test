@@ -8,7 +8,7 @@
 @section('content')
 @if (session('mensaje'))
 <div class="alert alert-success">
-    <strong>{{ session('mensaje') }} </strong>
+    <strong>{{ session()->pull('mensaje') }} </strong>
 </div>
 @endif
     @livewire('admin.tutores-index')

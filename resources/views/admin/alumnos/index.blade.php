@@ -6,6 +6,11 @@
 @stop
 
 @section('content')
+@if (session('mensaje'))
+<div class="alert alert-success">
+    <strong>{{ session()->pull('mensaje') }} </strong>
+</div>
+@endif
     @livewire('admin.alumnos-index')
 @stop
 

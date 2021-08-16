@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Admin\Profesion;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -23,6 +24,16 @@ class Persona extends Model
     public function tutelados()
     {
         return $this->belongsToMany(Persona::class, 'persona_tutor', 'tutor_id', 'persona_id');
+    }
+
+    public function profesion()
+    {
+        return $this->hasOne(Profesion::class);
+    }
+
+    public function talleres()
+    {
+        return $this->belongsToMany(Taller::class, 'alumno_taller', 'alumno_id', 'taller_id');
     }
 
 }

@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>AMi</b>Mundo',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'ins/assets/img/logoSPI.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -253,18 +253,46 @@ return [
         ],
         [
             'text'        => 'Usuarios',
-            'route'         => 'admin.users.index',
+            'route'       => 'admin.users.index',
             'icon'        => 'fas fa-users fa-fw',
+            'can'         => 'admin.users.index'
         ],
         [
             'text'        => 'Alumnos',
             'route'       => 'admin.alumnos.index',
-            'icon'        => 'fas fa-users fa-fw',
+            'icon'        => 'fas fa-child fa-fw',
+            'can'         => 'admin.alumnos.index'
         ],
         [
             'text'        => 'Tutores',
             'route'       => 'admin.tutores.index',
-            'icon'        => 'fas fa-users fa-fw',
+            'icon'        => 'fas fa-user-tie fa-fw',
+            'can'         => 'admin.tutores.index'
+        ],
+        [
+            'text'        => 'Profesionales',
+            'route'       => 'admin.prof.index',
+            'icon'        => 'fas fa-graduation-cap fa-fw',
+            'can'         => 'admin.prof.index'
+        ],
+        ['header' => 'PSICOLOGO'],
+        [
+            'text'      => 'Talleres',
+            'route'     => 'psico.taller.index',
+            'icon'      => 'fas fa-fw fa-user',
+            'can'       => 'psico.taller.index'
+        ],
+        [
+            'text' => 'Evaluaciones',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-lock',
+            'can'  => 'admin.users.index'
+        ],
+        [
+            'text' => 'Intervenciones',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-lock',
+            'can'  => 'admin.users.index'
         ],
         ['header' => 'account_settings'],
         [
@@ -480,6 +508,21 @@ return [
                     'type' => 'css',
                     'asset' => true,
                     'location' => 'vendor/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
+                ],
+            ],
+        ],
+        'Summernote' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/summernote/summernote-bs4.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/summernote/summernote-bs4.min.css',
                 ],
             ],
         ],

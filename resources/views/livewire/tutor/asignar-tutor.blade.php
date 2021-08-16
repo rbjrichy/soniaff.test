@@ -4,7 +4,7 @@
             <input
                 type="text"
                 class="position-relative form-control bg-white rounded"
-                placeholder="Buscar Tutor..."
+                placeholder="Seleccionar alumno"
                 wire:model="query"
                 wire:click="reset"
                 wire:keydown.escape="hideDropdown"

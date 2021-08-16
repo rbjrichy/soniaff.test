@@ -22,7 +22,7 @@
                     <div>
                         <label>
                             {!! Form::checkbox('roles[]', $role->id, null, ['class'=> 'mr-1']) !!}
-                            {{$role->guard_name}}
+                            {{$role->name}}
                         </label>
                     </div>
                 @endforeach

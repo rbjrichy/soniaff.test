@@ -35,20 +35,30 @@
                             <td>{{$alumno->escolaridad}}</td>
                             <td>
                                 <div class="btn-group">
-                                    <a class="btn btn-sm btn-primary" href="{!! route('admin.alumnos.show', [$alumno]) !!}">
-                                        ver
-                                    </a>
-                                    <a class="btn btn-sm btn-info" href="{!! route('admin.alumnos.edit', [$alumno]) !!}">
+                                    @can('admin.alumnos.show')
+                                        <a class="btn btn-sm btn-primary" href="{!! route('admin.alumnos.show', [$alumno]) !!}">
+                                            ver
+                                        </a>
+                                    @endcan
+                                    @can('admin.alumnos.edit')
+                                        <a class="btn btn-sm btn-info" href="{!! route('admin.alumnos.edit', [$alumno]) !!}">
                                         <i class="far fa-edit"></i>
                                     </a>
-                                    <a class="btn btn-sm btn-success" href="{!! route('admin.alumnos.tutores.create', [$alumno]) !!}">
-                                        Tutores
-                                    </a>
-                                    <form action="{{ route('admin.alumnos.destroy', [$alumno]) }}" method="POST" onsubmit='return confirm("¿Esta seguro que desea eliminar el registro?");'>
-                                        @csrf @method('delete')
-                                        <button type="submit" class="btn btn-sm btn-danger">
-                                            <i class="far fa-trash-alt"></i></button>
-                                    </form>
+                                    @endcan
+                                    @can('admin.alumnos.tutores.create', Model::class)
+                                        <a class="btn btn-sm btn-success" href="{!! route('admin.alumnos.tutores.create', [$alumno]) !!}">
+                                            Tutores
+                                        </a>
+                                    @endcan
+                                    
+                                    @can('admin.alumnos.destroy ')
+                                        <form action="{{ route('admin.alumnos.destroy', [$alumno]) }}" method="POST" onsubmit='return confirm("¿Esta seguro que desea eliminar el registro?");'>
+                                            @csrf @method('delete')
+                                            <button type="submit" class="btn btn-sm btn-danger">
+                                                <i class="far fa-trash-alt"></i></button>
+                                        </form>
+                                    @endcan
+                                    
                                 </div>
                             </td>
                         </tr>
