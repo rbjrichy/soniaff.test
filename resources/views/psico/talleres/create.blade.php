@@ -2,7 +2,7 @@
 @section('title', 'Tutores')
 
 @section('content_header')
-    <h1>Crear Profesional</h1>
+    <h1>Crear Taller</h1>
 @stop
 
 @section('content')
@@ -28,3 +28,5 @@
 <script> console.log('Hi!'); </script>
 @stop
 @section('plugins.TempusDominusBs4', true)
+@section('plugins.Summernote', true)
+

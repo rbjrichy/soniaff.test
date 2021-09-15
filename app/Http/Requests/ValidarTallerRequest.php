@@ -25,8 +25,8 @@ class ValidarTallerRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_taller' => 'required|max:250',
-            'descripcion'=> 'required|max:500',
+            'tema' => 'required|max:250',
+            'poblacion'=> 'required|max:250',
             'fecha_inicio'=> 'required|date|after:now',
         ];
     }

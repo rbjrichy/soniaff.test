@@ -1,6 +1,9 @@
 <table class="table table-striped table-bordered table-hover">
     <thead>
+        <th>Sesión</th>
         <th>Fecha</th>
+        <th>Hora</th>
+        <th>Duración</th>
         <th>Actividades</th>
         <th>Objetivos</th>
         <th>Materiales</th>
@@ -9,7 +12,10 @@
     <tbody>
         @foreach ($sesiones as $sesion)
         <tr>
-            <td>{!! $sesion->fecha->isoFormat('d MMMM YYYY') !!}</td>
+            <td>{!! $sesion->numero_sesion !!}</td>
+            <td>{!! $sesion->fecha_hora->isoFormat('DD MMM YYYY') !!}</td>
+            <td>{!! $sesion->fecha_hora->isoFormat('HH:mm') !!}</td>
+            <td>{!! $sesion->duracion !!} min</td>
             <td>{!! $sesion->actividades !!}</td>
             <td>{!! $sesion->objetivos !!}</td>
             <td>{!! $sesion->materiales !!}</td>

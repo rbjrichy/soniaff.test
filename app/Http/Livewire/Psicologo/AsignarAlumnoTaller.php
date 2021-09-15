@@ -71,7 +71,7 @@ class AsignarAlumnoTaller extends Component
         // $this->alumnos = [];
         $buscar = $this->query;
         // if(strlen($buscar) > 1)
-        $this->alumnos = Persona::where('tipo_persona','Alumno')
+        $this->alumnos = Persona::whereIn('tipo_persona',['Alumno', 'Tutor'])
                             ->where(function($query) use($buscar){
                                 $query->where('ci_nit', 'like', '%'.$buscar.'%');
                                 $query->orWhere('nombres', 'like', '%'.$buscar.'%');

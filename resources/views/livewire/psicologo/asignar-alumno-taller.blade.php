@@ -4,7 +4,7 @@
             <input
                 type="text"
                 class="position-relative form-control bg-white rounded"
-                placeholder="Buscar Alumno"
+                placeholder="Buscar Alumno o Tutor para Registrar en el Taller"
                 wire:model="query"
                 wire:click="reset"
                 wire:keydown.escape="hideDropdown"

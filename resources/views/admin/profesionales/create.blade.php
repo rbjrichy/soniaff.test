@@ -6,14 +6,22 @@
 @stop
 
 @section('content')
-
-<div class="col-8">
-    <div class="card">
-        <div class="card-body">
-            {!! Form::model($alumno=null, ['route' => ['psico.taller.store'], 'method' => 'post']) !!}
-                @include('admin.profesionales.partials.form_campos')
-                @include('partes.btn-guardar')
-            {!! Form::close() !!}
+@if ($errors->any())
+<ul>
+	@foreach ($errors->all() as $error)
+		<li>{{ $error }}</li>
+	@endforeach
+</ul>
+@endif
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                {!! Form::model($alumno=null, ['route' => ['admin.prof.store'], 'method' => 'post']) !!}
+                    @include('admin.profesionales.partials.form_campos')
+                    @include('partes.btn-guardar')
+                {!! Form::close() !!}
+            </div>
         </div>
     </div>
 </div>

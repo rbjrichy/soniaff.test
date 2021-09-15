@@ -7,15 +7,13 @@
 
 @section('content')
 
-<div class="col-12">
-    <div class="card">
-        <div class="card-body">
-            {!! Form::model($psicologo=null, ['route' => ['psico.sesion.store'], 'method' => 'post']) !!}
-            {!! Form::hidden('taller_id', $taller->id) !!}
-                @include('psico.sesiones.partials.form_campos')
-                @include('partes.btn-guardar')
-            {!! Form::close() !!}
-        </div>
+<div class="card">
+    <div class="card-body">        
+        {!! Form::model($psicologo=null, ['route' => ['psico.sesion.store',[$taller]], 'method' => 'post']) !!}
+        {!! Form::hidden('taller_id', $taller->id) !!}
+            @include('psico.sesiones.partials.form_campos')
+            @include('partes.btn-guardar')
+        {!! Form::close() !!}
     </div>
 </div>
     

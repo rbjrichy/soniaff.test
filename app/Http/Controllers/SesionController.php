@@ -26,7 +26,9 @@ class SesionController extends Controller
      */
     public function create(Taller $taller)
     {
-        return view('psico.sesiones.create')->with(compact('taller'));
+        $numSesion = $taller->sesiones()->count();
+        $numSesion++;
+        return view('psico.sesiones.create')->with(compact('taller','numSesion'));
     }
 
     /**
@@ -38,7 +40,7 @@ class SesionController extends Controller
     public function store(ValidarSesionRequest $request)
     {
         // dd($request->all());
-        Sesion::create($request->all());        
+        Sesion::create($request->all());   
         return redirect()->route('psico.taller.sesiones',[$request->get('taller_id')])->with('mensaje', 'Se creo la sesión correctamente');
     }
 

@@ -1,23 +1,27 @@
 <table class="table table-striped table-bordered table-hover">
     <thead>
-        <th>Nombre taller</th>
-        <th>Fecha Incio</th>
-        <th>Descripción</th>
-        <th>Estado</th>
+        <th>Tema taller</th>
+        <th width="15%">Fecha Inicio</th>
+        <th>Población</th>
         <th>Acciones</th>
     </thead>
     <tbody>
         @foreach ($talleres as $taller)
         <tr>
-            <td>{{$taller->nombre_taller}}</td>
-            <td>{{$taller->fecha_inicio->isoFormat('d MMMM YYYY')}}</td>
-            <td>{{$taller->descripcion}} </td>
-            <td>{{$taller->activo}}</td>
+            <td>{{$taller->tema}}</td>
+            <td>{{$taller->fecha_inicio->isoFormat('DD MMMM YYYY')}}</td>
+            <td>{{$taller->poblacion}} </td>
             <td>
                 {{-- <a class="btn btn-sm btn-primary" href="{{url('/psicologo/saludar/'.$taller->id)}}">Controlar</a> --}}
-                <a class="btn btn-sm btn-primary" href="{{route('psico.taller.control.alumnos.index', [$taller])}}">Controlar</a>
-                <a class="btn btn-sm btn-secondary" href="{{route('psico.taller.sesiones',[$taller])}}">Sesiones</a>
-                <a class="btn btn-sm btn-default" href="#">Archivar</a>
+                <div class="btn-group">
+                    <a class="btn btn-sm btn-primary" href="{{route('psico.taller.control.alumnos.index', [$taller])}}">Controlar</a>
+                    <form action="{{ route('psico.taller.destroy', [$taller]) }}" method="POST" onsubmit='return confirm("¿Esta seguro que desea archivar el taller?");'>
+                        @csrf @method('delete')
+                        <button type="submit" class="btn btn-sm btn-warning">
+                            Archivar
+                        </button>
+                    </form>
+                </div>
             </td>
         </tr>
         @endforeach

@@ -1,13 +1,9 @@
 <div>
+    <a class="btn btn-primary ml-auto" href="{{route('admin.prof.create')}}">Nuevo Profesional</a>
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col-sm-8">
-                    <input wire:model='search' class="form-control" placeholder="Ingrese el ci o nombre del tutor">
-                </div>
-                <div class="col-sm-4">
-                    <a class="btn btn-primary ml-auto" href="{{route('admin.prof.create')}}">Nuevo Profesional</a>
-                </div>
+                <input wire:model='search' class="form-control" placeholder="Ingrese el ci o nombre del tutor">
             </div>
             
         </div>

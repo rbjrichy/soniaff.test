@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidarProfesionalRequest;
 use App\Models\Admin\Profesion;
 use App\Models\Persona;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProfesionalController extends Controller
 {
@@ -27,7 +29,9 @@ class ProfesionalController extends Controller
 
     public function create()
     {
-        return view('admin.profesionales.create'); 
+        $usuarios = User::all()->pluck('email','id');
+        $usuarios = [''=>'--- Sin Usuario ---'] + $usuarios->all();
+        return view('admin.profesionales.create')->with(compact('usuarios')); 
     }
 
     public function store(ValidarProfesionalRequest $request)
@@ -49,7 +53,22 @@ class ProfesionalController extends Controller
     public function edit(Persona $profesionale)
     {
         $profesionale->profesion;
-        return view('admin.profesionales.edit', compact('profesionale')); 
+        $usuarios = User::all()->pluck('email','id');
+        $usuario = $profesionale->usuario()->first();
+        $rol=null;
+        if (!is_null($profesionale->user_id)) {
+            $rol = $this->obtenerRol($profesionale->user_id);
+        }
+        return view('admin.profesionales.edit', compact('profesionale', 'usuarios', 'usuario', 'rol')); 
+    }
+
+    public function obtenerRol($user_id)
+    {
+        return DB::table('model_has_roles')
+                 ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
+                 ->where('model_has_roles.model_id', $user_id)
+                 ->select('name')
+                 ->first();
     }
 
     public function update(ValidarProfesionalRequest $request, Persona $profesionale)

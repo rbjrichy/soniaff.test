@@ -57,6 +57,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('psicologo')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/psicologo.php'));
+            Route::middleware('web', 'auth')
+                ->prefix('director')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/director.php'));
         });
     }
 

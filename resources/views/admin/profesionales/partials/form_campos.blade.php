@@ -84,3 +84,9 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-6">
+        <label class="label">Seleccionar Usuario</label>
+        {!! Form::select('user_id', $usuarios, $selected=null, ['class'=>'form-control']) !!}
+    </div>
+</div>

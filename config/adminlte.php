@@ -277,87 +277,55 @@ return [
         ],
         ['header' => 'PSICOLOGO'],
         [
-            'text'      => 'Talleres',
+            'text'      => 'Prevención',
             'route'     => 'psico.taller.index',
-            'icon'      => 'fas fa-fw fa-user',
+            'icon'      => 'fas fa-fw fa-kaaba',
             'can'       => 'psico.taller.index'
         ],
         [
-            'text' => 'Evaluaciones',
+            'text' => 'Diagnóstico',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-            'can'  => 'admin.users.index'
+            'icon' => 'fas fa-fw fa-kaaba',
+            // 'can'  => 'psico.taller.index'
         ],
         [
-            'text' => 'Intervenciones',
+            'text' => 'Intervención',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-            'can'  => 'admin.users.index'
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-kaaba',
+            // 'can'  => 'psico.taller.index'
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Reportes',
+            'route'     => 'psico.reportes.index',
+            'icon' => 'far fa-file-alt',
+            // 'can'  => 'psico.taller.index'
+        ],
+        ['header' => 'DIRECTOR'],
+        [
+            'text'      => 'Psicologos',
+            'route'     => 'director.lista.psicologos',
+            'icon'      => 'fas fa-fw fa-file-invoice',
+            // 'can'       => 'psico.taller.index'
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'      => 'Talleres',
+            // 'route'     => 'psico.taller.index',
+            'url'  => '#',
+            'icon'      => 'fas fa-fw fa-file-invoice',
+            // 'can'       => 'psico.taller.index'
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text'      => 'Evaluaciones',
+            // 'route'     => 'psico.taller.index',
+            'url'  => '#',
+            'icon'      => 'fas fa-fw fa-file-invoice',
+            // 'can'       => 'psico.taller.index'
+        ],[
+            'text'      => 'Intervenciones',
+            // 'route'     => 'psico.taller.index',
+            'url'  => '#',
+            'icon'      => 'fas fa-fw fa-file-invoice',
+            // 'can'       => 'psico.taller.index'
         ],
     ],
 

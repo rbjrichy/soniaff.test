@@ -13,7 +13,7 @@ class Persona extends Model
 
     protected $table = 'personas';
     protected $dates = ['fecha_nac'];
-    protected $fillable = ['tipo_persona','ci_nit','nombres','apellidos','fecha_nac','lugar_nac','escolaridad','direccion','idioma','genero','ocupacion','telefonos'];
+    protected $fillable = ['tipo_persona','ci_nit','nombres','apellidos','fecha_nac','lugar_nac','escolaridad','direccion','idioma','genero','ocupacion','telefonos', 'user_id'];
 
 
     public function tutores()
@@ -34,6 +34,16 @@ class Persona extends Model
     public function talleres()
     {
         return $this->belongsToMany(Taller::class, 'alumno_taller', 'alumno_id', 'taller_id');
+    }
+
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function psicologo()
+    {
+        return $this->belongsToMany(Profesion::class, 'paciente', 'alumno_id', 'psicologo_id');
     }
 
 }

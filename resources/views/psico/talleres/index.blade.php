@@ -2,7 +2,7 @@
 @section('title', 'Talleres')
 
 @section('content_header')
-    <h1>Lista Talleres</h1>
+    <h1>Talleres Psicoeducativos</h1>
 @stop
 
 @section('content')

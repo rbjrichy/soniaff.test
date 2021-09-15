@@ -9,9 +9,9 @@ class Sesion extends Model
 {
     use HasFactory;
     protected $table = 'taller_sesiones';
-    protected $dates = ['fecha'];
+    protected $dates = ['fecha_hora'];
     protected $fillable = [
-        'actividades', 'objetivos', 'materiales', 'fecha', 'taller_id'
+        'numero_sesion','duracion','actividades', 'objetivos', 'materiales', 'procedimientos', 'fecha_hora', 'taller_id'
     ];
 
     public function taller()

@@ -44,7 +44,7 @@
             <td>{{$taller->descripcion}} </td>
             <td>{{$taller->activo}}</td>
             <td>
-                <a class="btn btn-sm btn-primary" href="#" target="_blank" rel="noopener noreferrer">Ver Taller</a>
+                <a class="btn btn-sm btn-primary" href="#">Ver Taller</a>
             </td>
         </tr>
         @endforeach

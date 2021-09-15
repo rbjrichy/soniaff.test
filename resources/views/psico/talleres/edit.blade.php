@@ -36,3 +36,5 @@
 <script> console.log('Hi!'); </script>
 @stop
 @section('plugins.TempusDominusBs4', true)
+@section('plugins.Summernote', true)
+

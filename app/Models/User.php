@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
@@ -68,7 +70,12 @@ class User extends Authenticatable
 
     public function adminlte_desc()
     {
-        return 'Administrador';
+        $user = DB::table('model_has_roles')
+                 ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
+                 ->where('model_has_roles.model_id', Auth::user()->id)
+                 ->select('name')
+                 ->first();
+        return $user->name??'';
     }
 
     public function adminlte_profile_url()
