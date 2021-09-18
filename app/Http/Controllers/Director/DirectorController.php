@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Profesion;
 use App\Models\Persona;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DirectorController extends Controller
 {
@@ -19,6 +20,26 @@ class DirectorController extends Controller
     {
         $psicologo->pacientes;
         $psicologo->psicologo;
+        // dd(DB::table('paciente')->pluck('alumno_id')->toArray());
         return view('director.lista_pacientes')->with(compact('psicologo'));
+    }
+    public function asignarPacientePsicologo(Request $request)
+    {
+        // dd($request->all());
+        $psicologo = Profesion::findOrFail($request->get('psicologo_id'));
+        if ($request->get('alumno_id')>0) {
+            $psicologo->pacientes()->attach($request->get('alumno_id'));
+        }
+        return redirect()->route('director.lista.pacientes.psicologo',[$psicologo]);
+    }
+
+    public function quitarPacientePsicologo(Request $request)
+    {
+        // dd($request->all());
+        $psicologo = Profesion::findOrFail($request->get('psicologo_id'));
+        if ($request->get('alumno_id')>0) {
+            $psicologo->pacientes()->detach($request->get('alumno_id'));
+        }
+        return redirect()->route('director.lista.pacientes.psicologo',[$psicologo]);
     }
 }

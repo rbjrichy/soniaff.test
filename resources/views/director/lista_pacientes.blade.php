@@ -9,6 +9,17 @@
 @if (session('mensaje'))
     @include('partes.mensaje')
 @endif
+{!! Form::open(['route' => ['director.psicologo.asignar.paciente']]) !!}
+<div class="row mb-3">
+    <div class="col-8">
+        @livewire('director.asignar-paciente')
+    </div>
+    <div class="col-4">
+        {!! Form::submit('Asignar Paciente', ['class'=>'btn btn-sm btn-primary']) !!}
+    </div>
+</div>
+{!! Form::hidden('psicologo_id', $psicologo->id) !!}
+{!! Form::close() !!}
     <table class="table table-light">
         <thead>
             <tr>
@@ -31,7 +42,13 @@
                 <td>{{$item->nombres}} {{$item->apellidos}}</td>
                 <td>{{$item->escolaridad}}</td>
                 <td>
-                    <a class="btn btn-sm btn-primary" href="#">Quitar</a>
+                    <div class="btn-group">
+                        {!! Form::open(['route' => ['director.psicologo.quitar.paciente']]) !!}
+                        {!! Form::hidden('psicologo_id', $psicologo->id) !!}
+                        {!! Form::hidden('alumno_id', $item->id) !!}
+                        {!! Form::submit('Quitar', ['class'=>'btn btn-sm btn-danger']) !!}
+                        {!! Form::close() !!}
+                    </div>
                 </td>
             </tr>
             @endforeach

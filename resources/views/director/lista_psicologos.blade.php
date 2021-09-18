@@ -15,6 +15,7 @@
                 <th>#</th>
                 <th>Nombre Psicologo</th>
                 <th>Especialidad</th>
+                <th>Pacientes</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -27,6 +28,7 @@
                     <td>{{$i++}}</td>
                     <td>{{$item->persona->nombres}} {{$item->persona->apellidos}}</td>
                     <td>{{$item->especialidad}}</td>
+                    <td>{{$item->total_pacientes}}</td>
                     <td>
                         <a class="btn btn-sm btn-primary" href="{{route('director.lista.pacientes.psicologo',[$item->id])}}">Pacientes</a>
                     </td>

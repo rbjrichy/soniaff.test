@@ -29,4 +29,9 @@ class Profesion extends Model
         return $this->belongsToMany(Persona::class, 'paciente', 'psicologo_id','alumno_id');
     }
 
+    public function getTotalPacientesAttribute()
+    {
+        return count($this->pacientes()->get());
+    }
+
 }
