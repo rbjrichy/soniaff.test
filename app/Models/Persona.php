@@ -46,4 +46,14 @@ class Persona extends Model
         return $this->belongsToMany(Profesion::class, 'paciente', 'alumno_id', 'psicologo_id');
     }
 
+    public function matriculas()
+    {
+        return $this->hasMany(Matricula::class, 'alumno_id');
+    }
+
+    public function fullName()
+    {
+        return $this->nombres . ' ' . $this->apellidos;
+    }
+
 }

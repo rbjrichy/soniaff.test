@@ -298,14 +298,14 @@ return [
             'text' => 'Reportes',
             'route'     => 'psico.reportes.index',
             'icon' => 'far fa-file-alt',
-            // 'can'  => 'psico.taller.index'
+            'can'  => 'psico.reportes.index'
         ],
         ['header' => 'DIRECTOR'],
         [
             'text'      => 'Psicologos',
             'route'     => 'director.lista.psicologos',
             'icon'      => 'fas fa-fw fa-file-invoice',
-            // 'can'       => 'psico.taller.index'
+            'can'       => 'director.lista.psicologos'
         ],
         [
             'text'      => 'Talleres',
@@ -322,6 +322,26 @@ return [
             // 'can'       => 'psico.taller.index'
         ],[
             'text'      => 'Intervenciones',
+            // 'route'     => 'psico.taller.index',
+            'url'  => '#',
+            'icon'      => 'fas fa-fw fa-file-invoice',
+            // 'can'       => 'psico.taller.index'
+        ],
+        ['header' => 'PAGOS'],
+        [
+            'text'      => 'Tarifas',
+            'route'     => 'director.gestionar.tarifa.index',
+            'icon'      => 'fas fa-fw fa-file-invoice',
+            // 'can'       => 'director.gestionar.tarifa.index'
+        ],
+        [
+            'text'      => 'Matriculas',
+            'route'     => 'director.matriculas.lista.matriculados',
+            'icon'      => 'fas fa-fw fa-file-invoice',
+            // 'can'       => 'director.matriculas.lista.matriculados'
+        ],
+        [
+            'text'      => 'Pagos',
             // 'route'     => 'psico.taller.index',
             'url'  => '#',
             'icon'      => 'fas fa-fw fa-file-invoice',

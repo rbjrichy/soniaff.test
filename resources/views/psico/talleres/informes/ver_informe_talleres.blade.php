@@ -11,7 +11,7 @@
         <div class="card-header border-0">
           <div class="d-flex justify-content-between">
             <h3 class="card-title">Informe Taller</h3>
-            <div class="card-tools">
+              <div class="card-tools">
                 <a href="#" class="btn btn-tool btn-sm">
                   <i class="fas fa-print"></i>
                 </a>

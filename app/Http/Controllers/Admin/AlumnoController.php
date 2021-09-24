@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidarAlumnosRequest;
 use App\Models\DatosGenerales;
 use App\Models\Persona;
-use phpDocumentor\Reflection\Types\This;
+// use phpDocumentor\Reflection\Types\This;
 
 class AlumnoController extends Controller
 {

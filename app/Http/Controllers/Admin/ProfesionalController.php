@@ -39,7 +39,7 @@ class ProfesionalController extends Controller
         $request['tipo_persona'] = "Profesional";
         $profesional = Persona::create($request->all());
         $request['persona_id'] = $profesional->id;
-        $profesion = Profesion::create($request->all());
+        // $profesion = Profesion::create($request->all());
         $profesional->profesion;
         return redirect()->route('admin.prof.edit',[$profesional])->with('mensaje', 'Se creo el profesional correctamente');
     }

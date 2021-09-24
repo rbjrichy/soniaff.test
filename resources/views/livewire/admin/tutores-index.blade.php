@@ -46,7 +46,8 @@
                                     <form action="{{ route('admin.tutores.destroy', [$tutor]) }}" method="POST" onsubmit='return confirm("¿Esta seguro que desea eliminar el registro?");'>
                                         @csrf @method('delete')
                                         <button type="submit" class="btn btn-sm btn-danger">
-                                            <i class="far fa-trash-alt"></i></button>
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
                                     </form>
                                 </div>
                             </td>

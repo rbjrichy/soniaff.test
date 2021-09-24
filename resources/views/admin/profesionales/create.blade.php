@@ -17,7 +17,8 @@
     <div class="col-8">
         <div class="card">
             <div class="card-body">
-                {!! Form::model($alumno=null, ['route' => ['admin.prof.store'], 'method' => 'post']) !!}
+                {{-- cambiar alumno error debe ser profesionale --}}
+                {!! Form::model($profesionale=null, ['route' => ['admin.prof.store'], 'method' => 'post']) !!}
                     @include('admin.profesionales.partials.form_campos')
                     @include('partes.btn-guardar')
                 {!! Form::close() !!}

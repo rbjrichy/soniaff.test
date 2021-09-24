@@ -39,7 +39,6 @@ class SesionController extends Controller
      */
     public function store(ValidarSesionRequest $request)
     {
-        // dd($request->all());
         Sesion::create($request->all());   
         return redirect()->route('psico.taller.sesiones',[$request->get('taller_id')])->with('mensaje', 'Se creo la sesión correctamente');
     }
@@ -64,7 +63,6 @@ class SesionController extends Controller
     public function edit(Sesion $sesion)
     {
         $taller = $sesion->taller()->first();
-        // dd($taller);
         return view('psico.sesiones.edit')->with(compact('sesion', 'taller'));
     }
 
@@ -90,7 +88,6 @@ class SesionController extends Controller
      */
     public function destroy(Sesion $sesion)
     {
-        // dd($sesion);
         $taller = $sesion->taller()->first();
         $sesion->delete();
         session(['mensaje' => 'El registro ha sido borrado correctamente.']);
