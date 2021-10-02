@@ -62,4 +62,6 @@ class AvisosCobroController extends Controller
         $avisoCobro->save();
         return redirect()->route('director.matricula.cuenta.alumno',[$matricula->alumno->id]);
     }
+
+    
 }

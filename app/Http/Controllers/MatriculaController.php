@@ -45,7 +45,6 @@ class MatriculaController extends Controller
 
         Validator::make($request->all(), $reglas, $mensajes)->validate();
         $reglas = Arr::add($reglas, 'codigo','unique:matriculas');
-        // dd($reglas);
         $codigo = $this->generarCodigo(Config::get('constants.codMatricula'));
         $request['codigo']= $codigo->codigo;
         $validado = Validator::make($request->all(), $reglas, $mensajes)->validate();

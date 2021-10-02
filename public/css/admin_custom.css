@@ -1,3 +1,38 @@
 a.listItem:hover{
     background: #007bff;
 }
+:root{
+    --tarjeta-color: #f8f9fa;
+    --tarjeta-header-color: #f8f9fade;
+    --tarjeta-body-color: #f8f9fa;
+    --tarjeta-footer-color: #f8f9fa;
+ }
+.tarjeta{
+    margin: 0 auto;
+    background: var(--tarjeta-color);
+    color:rgb(255, 255, 255);
+    /* width: 400px; */
+    padding: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.377);
+    border-radius: 20px;            
+}
+.tarjeta-header{
+    background: var(--tarjeta-header-color);            
+    margin: -20px;
+    padding: 20px;
+    border-radius: 20px 20px 0px 0px;
+}
+.tarjeta-body{
+    background: var(--tarjeta-body-color);
+    margin: -20px;
+    padding: 20px;
+    border-radius: 00px 00px 20px 20px;
+}
+.tarjeta-footer{
+    background: var(--tarjeta-footer-color);
+    margin: -20px;
+    padding: 20px;
+    border-radius: 00px 00px 20px 20px;
+    display: flex;
+    justify-content: space-between
+}

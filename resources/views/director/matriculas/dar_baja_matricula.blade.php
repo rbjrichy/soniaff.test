@@ -27,9 +27,7 @@
     <label for="">Nombre: </label>
     <div class="h5">&nbsp;&nbsp; {{$alumno->fullName()}} </div>
 </div>
-<div class="row">
     @include('director.cuenta_alumno.datos_alumno_matricula')
-</div>
 <div class="row p-2">
     {!! Form::open(['route'=>'director.matriculas.delete']) !!}
     {!! Form::hidden('matricula_id', $matricula->id) !!}

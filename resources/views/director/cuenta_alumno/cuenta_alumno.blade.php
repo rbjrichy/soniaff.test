@@ -14,9 +14,7 @@
         {{$alumno->fullName()}}
     </div>
     <div class="card-body">
-        <div class="row">
-            @include('director.cuenta_alumno.datos_alumno_matricula')
-        </div>
+        @include('director.cuenta_alumno.datos_alumno_matricula')
     </div>
 </div>
 <div class="card">

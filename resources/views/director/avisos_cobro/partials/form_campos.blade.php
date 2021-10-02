@@ -7,7 +7,7 @@
 <div class="col-3">
     <div class="form-group">
         <label for="tarifa_id">Tarifa a Cobrar</label>
-        {!! Form::select('tarifa_id', $tarifas, old('tarifa_id',$avisoCobro->tarifa_id??''), ['class'=>'form-control', 'id'=>'tarifa_id']) !!}
+        {!! Form::select('tarifa_id', $tarifas, old('tarifa_id',$avisoCobro->tarifa_id??$matricula->tarifa_defecto_id), ['class'=>'form-control', 'id'=>'tarifa_id']) !!}
         <span class="invalid-feedback" role="alert">
             <strong>{!! $errors->first('tarifa_id')!!} error</strong>
         </span>

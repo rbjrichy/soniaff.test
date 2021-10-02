@@ -3,6 +3,7 @@
 use App\Http\Controllers\AvisosCobroController;
 use App\Http\Controllers\Director\CuentaAlumnoController;
 use App\Http\Controllers\Director\DirectorController;
+use App\Http\Controllers\Director\ReportesPagosController;
 use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\TarifaController;
@@ -35,4 +36,15 @@ Route::post('gestionar/avisos/cobro/{matricula}', [AvisosCobroController::class,
 Route::get('gestionar/avisos/cobro/eliminar/{avisoCobro})',[AvisosCobroController::class, 'eliminarAvisoCobro'])->name('director.avisos.cobro.eliminar.show');
 Route::post('gestionar/avisos/cobro/eliminar/{avisoCobro})',[AvisosCobroController::class, 'eliminarAvisoCobroDelete'])->name('director.avisos.cobro.eliminar.delete');
 
+/** Pagos */
 Route::post('pagar/cuentas/alumno', [PagoController::class, 'pagarCuentas'])->name('director.pagar.cuentas.alumno');
+Route::get('pagos',[PagoController::class, 'pagosIndex'])->name('director.pagos.index');
+Route::post('generar/avisos/cobro', [PagoController::class,'generarAvisosCobro'])->name('director.generar.avisos.cobro');
+Route::post('registrar/pago/buscar/matricula', [PagoController::class,'buscarAlumnoMatricula'])->name('director.buscar.alumno.matricula');
+
+/**reportes */
+Route::get('reporte/deudas',[ReportesPagosController::class, 'verReporteDeuda'])->name('director.ver.reporte.deudas');
+Route::post('reporte/deudas',[ReportesPagosController::class, 'generarReporteDeuda'])->name('director.generar.reporte.deudas');
+Route::get('reporte/ingresos',[ReportesPagosController::class, 'verReporteIngresos'])->name('director.ver.reporte.ingresos');
+Route::post('reporte/ingresos',[ReportesPagosController::class, 'generarReporteIngresos'])->name('director.generar.reporte.ingresos');
+

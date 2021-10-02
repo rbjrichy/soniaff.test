@@ -342,8 +342,7 @@ return [
         ],
         [
             'text'      => 'Pagos',
-            // 'route'     => 'psico.taller.index',
-            'url'  => '#',
+            'route'     => 'director.pagos.index',
             'icon'      => 'fas fa-fw fa-file-invoice',
             // 'can'       => 'psico.taller.index'
         ],

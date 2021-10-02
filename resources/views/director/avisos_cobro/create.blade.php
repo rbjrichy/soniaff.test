@@ -13,6 +13,9 @@
 <div class="card">
     <div class="card-header">
         Crear Avisos de Cobro para el alumno <span id="nombre">{{$matricula->alumno->fullName()}}</span>
+        <span class="mt-2">
+            <span class="{{$matricula->estado=='Activo'?'bg-green':'bg-red'}} p-2">{{$matricula->estado}}</span>
+        </span>
     </div>
     @php
         // dd($errors);

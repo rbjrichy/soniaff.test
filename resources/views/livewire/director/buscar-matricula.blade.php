@@ -4,7 +4,7 @@
             <input
                 type="text"
                 class="position-relative form-control bg-white rounded"
-                placeholder="Buscar Tutor"
+                placeholder="Seleccionar alumno"
                 wire:model="query"
                 wire:click="reset"
                 wire:keydown.escape="hideDropdown"
@@ -13,7 +13,7 @@
                 wire:keydown.Arrow-Down="incrementHighlight"
                 wire:keydown.enter.prevent="selectTutor"
             />
-            @if ($selectedTutor)
+            @if ($selectedAlumno)
                 <div class="input-group-append">
                     <button wire:click="reset" type="button" class="btn" data-card-widget="remove"><i class="fas fa-times"></i>
                     </button>
@@ -21,16 +21,16 @@
             @endif
         </div>  
 
-        <input type="hidden" name="tutorId" id="tutorId" wire:model="selectedTutor">
+        <input type="hidden" name="alumno_id" id="alumno_id" wire:model="selectedAlumno">
         
-        @if(!empty($query) && $selectedTutor == 0 && $showDropdown)
+        @if(!empty($query) && $selectedAlumno == 0 && $showDropdown)
         <div class="list-group">
-            @if (!empty($tutores))
-                @foreach($tutores as $i => $tutor)
+            @if (!empty($alumnos))
+                @foreach($alumnos as $i => $alumno)
                     <a 
                     wire:click="selectTutor({{ $i }})"
                     class="list-group-item list-group-item-action {{ $highlightIndex === $i ? 'bg-primary' : '' }}"
-                    >{{ $tutor['nombres'] }} {{ $tutor['apellidos'] }} - {{$tutor['ci_nit']}} </a>
+                    >{{ $alumno['nombres'] }} {{ $alumno['apellidos'] }} - {{$alumno['ci_nit']}} </a>
                 @endforeach
             @else
             <span class="form-control">No hay resultados!</span>
